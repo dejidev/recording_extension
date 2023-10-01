@@ -1,0 +1,102 @@
+<html>
+
+<head>
+  <title>Screen Recorder</title>
+  <link href="/dist/output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&family=Work+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body class="w-[300px] h-full p-6">
+  <div id="recWindow" class="hidden"> 
+    <!-- <div id="instructions">
+      Test your mic recording level by talking at a normal volume. If the
+      meter displays red, decrease the level below.
+    </div> -->
+    <div class="flex items-center justify-between">
+      <img src="../assets/logo.png" alt="logo">
+      <div class="flex items-center gap-3">
+        <img src="../assets/setting.png" alt="">
+        <img src="../assets/close.png" alt="">
+      </div>
+    </div>
+
+
+
+    <p class="text-[#413C6D] mt-4 mr-6 text-sm">This extension helps you record and share help videos with ease.</p>
+    <div class="flex items-center justify-around my-6">
+      <img src="../assets/screen.png" alt="screen">
+      <img src="../assets/current.png" alt="current tab">
+    </div>
+
+
+    <!-- Camera -->
+    <div class="flex items-center justify-between border p-3 rounded-xl border-[#100A42] mb-3">
+      <div class="flex items-center gap-2">
+        <img src="../assets/cam.png" alt="">
+        <p class="text-[#100A42] font-medium text-sm">Camera</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <!-- //Audio -->
+    <div class="flex items-center justify-between border p-3 rounded-xl border-[#100A42]">
+      <div class="flex items-center gap-2">
+        <img src="../assets/microphone.png" alt="">
+        <p class="text-[#100A42] font-medium text-sm">Audio</p>
+      </div>
+      <label class="switch" id="vuMeterToggleLabel">
+        <input type="checkbox" id="vuMeterToggle" />
+        <span class="slider round"></span>
+      </label>
+
+    </div>
+
+
+
+    <div id="vumeterContainer">
+      <div id="testMic">Talk to test mic</div>
+      <canvas width="250px" height="30px" id="vumeter"></canvas>
+      Mic Level:&nbsp;&nbsp; -
+      <input type="range" min="0" max="1" step="0.01" id="volume" value="1" /> +
+      <br />
+    </div>
+
+    <button id="start" class="text-white bg-[#100A42] font-semibold text-base py-3 w-full my-6 rounded-xl">
+      Start
+      Recording
+    </button>
+
+    <div id="tooLoud" class="hidden">Too loud</div>
+
+    <button id="starttab" class="hidden">Start tab capture</button>
+
+  </div>
+
+
+<!-- //controller -->
+  <div>
+
+
+  </div>
+
+  <div id="pauseWindow">
+    <h3 id="timer"></h3>
+    <h4 id=monitorState>Recording is paused.</h4>
+    <button id="resume">Resume Recording</button>
+    <button id="stop">End Recording</button>
+
+    <div id='waiting1'></div>
+    <div id='waiting2'></div>
+    <div id='waiting3'></div>
+
+    <button id="cancel" hidden=true>Cancel</button>
+  </div>
+  <script src="receiver.js"></script>
+</body>
+
+</html>
