@@ -163,7 +163,7 @@ function StartRecording() {
       console.log(response);
     }
   );
-  // window.close();
+  window.close();
   
 }
 
@@ -179,7 +179,7 @@ function StopRecording() {
   console.log(new Date().toLocaleTimeString());
   chrome.runtime.sendMessage({ stopRecording: 'on' }, function (response) {});
   
-  // chrome.tabs.create({ url: 'https://video-recorder-phi.vercel.app' });
+  chrome.tabs.create({ url: 'https://video-recorder-orpin.vercel.app' });
 }
 
 var meterWidth = 0;
